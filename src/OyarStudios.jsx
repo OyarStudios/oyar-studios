@@ -5,9 +5,8 @@ import { motion } from 'framer-motion';
 import { Instagram, Tiktok, Mail, Send } from 'lucide-react';
 
 const images = [
-  '/media/foto1.jpg',
   '/media/video1.mp4',
-  '/media/foto2.jpg'
+  ...Array.from({ length: 38 }, (_, i) => `/media/foto${i + 1}.jpg`)
 ];
 
 export default function OyarStudios() {
@@ -33,7 +32,7 @@ export default function OyarStudios() {
             {images[current].endsWith('.mp4') ? (
               <video src={images[current]} controls className="w-full h-auto" />
             ) : (
-              <img src={images[current]} alt="content" className="w-full h-auto" />
+              <img src={images[current]} alt={`foto ${current}`} className="w-full h-auto" />
             )}
           </Card>
           <div className="absolute top-1/2 left-0 transform -translate-y-1/2">
